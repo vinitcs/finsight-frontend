@@ -1,0 +1,31 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+@import "react-datepicker/dist/react-datepicker.css";
+
+/* Ensure full height for html, body, and root */
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+/* ::-webkit-scrollbar-track {
+  background: #475569;
+} */
+
+::-webkit-scrollbar-thumb {
+  background: #64748b;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1e293b;
+}
