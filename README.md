@@ -1,34 +1,134 @@
-# React + Vite
+# FinSight Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Personal Finance Analytics Dashboard** - React + Vite frontend for tracking and analyzing personal finances.
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Modern, responsive React application for managing bank accounts, uploading statements, and viewing financial analytics with interactive charts.
 
-## React Compiler
+### Key Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- User authentication (login/register)
+- Bank account management
+- PDF bank statement upload
+- Transaction history viewer
+- Advanced analytics dashboards with charts
+- Monthly and yearly balance trends
+- Cash flow analysis (credits vs debits)
+- Top transactions visualization
+- User settings & preferences
+- Responsive design
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **React 19** - UI library
+- **Vite** - Build tool & dev server
+- **React Router** - Client-side routing
+- **Redux Toolkit** - State management
+- **Tailwind CSS** - Styling
+- **Recharts** - Data visualization
+- **React Hook Form** - Form management
+- **Axios** - HTTP client
+- **React DatePicker** - Date selection
 
-## Oveview
+## Project Structure
 
-Dashboard/
-└── Dashboard.jsx
-├── StatCards (4 cards)
-├── MonthlyBarChart (last 6 months, no filter)
-├── TopTransactions (top 5 only)
-└── RecentTransactions (last 5 only)
+```
+src/
+├── api/              # API client modules (axios instances & endpoints)
+├── components/       # Reusable React components
+│   ├── common/       # Shared components (navbar, sidebar)
+│   ├── layout/       # Layout wrappers
+│   ├── charts/       # Chart components
+│   ├── account/      # Account components
+│   ├── analytics/    # Analytics components
+│   └── DatePicker/   # Date picker
+├── pages/            # Page components
+│   ├── Auth/         # Login/Register pages
+│   ├── Dashboard/    # Main dashboard
+│   ├── Analytics/    # Analytics page
+│   ├── Transactions/ # Transactions page
+│   ├── Account/      # Account management
+│   ├── Upload/       # File upload page
+│   └── Settings/     # User settings
+├── hooks/            # Custom React hooks
+├── store/            # Redux store & slices
+├── config/           # App configuration & routes
+├── theme/            # Theming & colors
+├── utils/            # Utility functions
+├── App.jsx           # Root component
+└── main.jsx          # Entry point
+```
 
-Analytics/
-└── Analytics.jsx
-├── YearlyChart (year selector)
-├── MonthlyTrendChart (full year, month filter)
-├── AmountRangeChart (pie chart)
-├── BalanceTrendChart (line chart)
-├── TopCreditsTable (top 10, date range filter)
-└── TopDebitsTable (top 10, date range filter)
+## Getting Started
+
+### Prerequisites
+- Node.js 18+
+- npm or yarn
+
+### Installation
+
+```bash
+# Install dependencies
+npm install
+
+# Create environment file
+cp .env.example .env
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+```
+
+### Environment Variables
+
+```
+VITE_API_URL=http://localhost:5000/api/v1
+```
+
+## Available Scripts
+
+```bash
+npm run dev      # Start development server
+npm run build    # Build for production
+npm run preview  # Preview production build
+npm run lint     # Run ESLint
+```
+
+## Key Pages
+
+- **Dashboard** - Overview with stats and recent transactions
+- **Analytics** - Multiple charts: yearly, monthly trends, amount ranges, top transactions, balance tracking
+- **Transactions** - List of all user transactions
+- **Upload** - Upload bank statement PDFs
+- **Accounts** - Manage bank accounts
+- **Settings** - User preferences
+- **Auth** - Login and registration
+
+## Development Workflow
+
+The frontend communicates with the backend API at `/api/v1`:
+- Axios interceptors handle authentication & errors
+- Redux manages global state (auth, transactions, analytics)
+- Custom hooks provide easy data fetching & caching
+- Components are modular and reusable
+
+## Deployment
+
+```bash
+npm run build
+# Deploy dist/ folder to hosting platform
+```
+
+## License
+
+ISC
+
+## Author
+
+Vinit Chavan
