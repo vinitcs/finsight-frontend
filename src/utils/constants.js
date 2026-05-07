@@ -57,4 +57,5 @@ export const ROUTES = {
   UPLOAD: "/upload",
   ANALYTICS: "/analytics",
   ACCOUNT: "/accounts",
+  UPDATE_PASSWORD: "/updatePassword"
 };

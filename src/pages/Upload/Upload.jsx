@@ -174,6 +174,9 @@ export const Upload = () => {
                   <th className="text-light font-medium text-[0.9rem] border-b border-r  border-slate-200 p-3">
                     Transaction Extracted
                   </th>
+                  <th className="text-light font-medium text-[0.9rem] border-b border-r  border-slate-200 p-3">
+                    Message
+                  </th>
                   <th className="text-light font-medium text-[0.9rem] border-b  border-slate-200 p-3">
                     Action
                   </th>
@@ -183,7 +186,7 @@ export const Upload = () => {
                 {uploads.map((tx, idx) => (
                   <tr
                     key={idx}
-                    className={`text-center hover:bg-light`}
+                    className={`text-center hover:bg-light text-[0.8rem]`}
                   >
                     <td className="border-t border-r border-slate-200 p-3">
                       {tx.id}
@@ -196,11 +199,14 @@ export const Upload = () => {
                     <td className="border-t border-r border-slate-200 p-3">
                       {tx.accountNumber}
                     </td>
-                    <td className={`border-t border-r border-slate-200 p-3 text-[0.8rem] font-medium`}>
+                    <td className={`border-t border-r border-slate-200 p-3 font-medium`}>
                       {tx.originalName}
                     </td>
                     <td className="border-t border-r border-slate-200 p-3">
                       {tx.rowCount}
+                    </td>
+                    <td className="border-t border-r border-slate-200 p-3">
+                      {tx.message ?? "-"}
                     </td>
                     <td className="border-t border-l border-slate-200 p-3">
                       <button

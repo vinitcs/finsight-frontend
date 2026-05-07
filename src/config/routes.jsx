@@ -2,6 +2,7 @@ import React from 'react'
 import { Navigate } from 'react-router-dom'
 import { Login } from '../pages/Auth/Login'
 import { Register } from '../pages/Auth/Register'
+import { UpdatePassword } from '../pages/Auth/UpdatePassword'
 import { Dashboard } from '../pages/Dashboard/Dashboard'
 import { Transactions } from '../pages/Transactions/Transactions'
 import { Upload } from '../pages/Upload/Upload'
@@ -49,6 +50,10 @@ export const routeConfig = [
         path: ROUTES.ACCOUNT,
         element: <Account />,
       },
+      {
+        path: ROUTES.UPDATE_PASSWORD,
+        element: <UpdatePassword />,
+      }
     ],
   },
 

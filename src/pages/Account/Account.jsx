@@ -133,7 +133,7 @@ export const Account = () => {
                          </div>
                          {accounts.length != 0 && (
                               <Button onClick={handleAddClick} disabled={loading}>
-                              + Add Account
+                              + Add Bank Account
                          </Button>
                          )}
                     </div>
@@ -152,11 +152,11 @@ export const Account = () => {
                          </div>
                     ) : accounts.length === 0 ? (
                          <div className="rounded-xl p-8 text-center">
-                              <p className="text-slate-400 mb-4">No accounts found. Add your first account to get started.</p>
-                              <Button onClick={handleAddClick}>+ Add Account</Button>
+                              <p className="text-slate-400 mb-4">No bank accounts found. Add your first bank account to get started.</p>
+                              <Button onClick={handleAddClick}>+ Add Bank Account</Button>
                          </div>
                     ) : (
-                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1">
+                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-1">
                               {accounts.map((account) => (
                                    <div
                                         key={account.id}

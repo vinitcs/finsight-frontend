@@ -1,12 +1,13 @@
 import React from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { logoutUser } from '../../store/slices/authSlice'
 import { ROUTES } from '../../utils/constants'
-import { ChartBarSquareIcon, ClipboardIcon, CreditCardIcon, ArrowUpTrayIcon, ChartBarIcon, Cog6ToothIcon, ArrowLeftStartOnRectangleIcon } from "@heroicons/react/24/solid"
+import { ChartBarSquareIcon, ClipboardIcon, CreditCardIcon, ArrowUpTrayIcon, ChartBarIcon, Cog6ToothIcon, ArrowLeftStartOnRectangleIcon, LockClosedIcon } from "@heroicons/react/24/solid"
 
 export const Sidebar = ({ isOpen, onClose }) => {
   const navigate = useNavigate()
+  const location = useLocation();
   const dispatch = useDispatch()
   const { user } = useSelector((state) => state.auth)
 
@@ -16,6 +17,7 @@ export const Sidebar = ({ isOpen, onClose }) => {
     { name: 'Transactions', path: ROUTES.TRANSACTIONS, icon: CreditCardIcon },
     { name: 'Upload', path: ROUTES.UPLOAD, icon: ArrowUpTrayIcon },
     { name: 'Accounts', path: ROUTES.ACCOUNT, icon: Cog6ToothIcon },
+    { name: 'Update Password', path: ROUTES.UPDATE_PASSWORD, icon: LockClosedIcon }
   ]
 
   const handleLogout = async () => {
@@ -63,7 +65,7 @@ export const Sidebar = ({ isOpen, onClose }) => {
             <button
               key={item.path}
               onClick={() => handleNavClick(item.path)}
-              className="w-full text-left px-4 py-3 rounded-lg text-primary hover:bg-secondary hover:cursor-pointer hover:text-light transition-all duration-200 font-medium flex items-center gap-3"
+              className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-200 font-medium flex items-center gap-3 ${item.path === location.pathname ? 'bg-secondary text-light' : 'hover:bg-background hover:cursor-pointer'}`}
             >
               <item.icon className="w-5 h-5" />
               {item.name}

@@ -4,7 +4,8 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, Link } from 'react-router-dom'
-import { registerUser } from '../../store/slices/authSlice'
+import { registerUser, googleAuthUser } from '../../store/slices/authSlice'
+import { GoogleLogin } from '@react-oauth/google'
 import { Button } from '../../components/common/Button'
 import { Input } from '../../components/common/Input'
 import { useToast } from '../../hooks/useToast'
@@ -50,17 +51,35 @@ export const Register = () => {
     }
   }
 
+  const handleGoogleSuccess = async (credentialResponse) => {
+    try {
+      const result = await dispatch(googleAuthUser(credentialResponse.credential))
+      if (result.type === '/auth/google/fulfilled') {
+        navigate(ROUTES.DASHBOARD)
+        showToast('Google registration successful!', 'success')
+      } else {
+        showToast(result.payload || 'Google registration failed', 'error')
+      }
+    } catch (err) {
+      showToast('Google registration error', 'error')
+    }
+  }
+
+  const handleGoogleError = () => {
+    showToast('Google registration failed', 'error')
+  }
+
   return (
     <div className="h-screen">
       <div className="grid grid-cols-2 h-full">
         {/* Column 1: Logo and Form */}
         <div className="flex flex-col justify-center px-12">
           <div className="w-full max-w-md mx-auto">
-            <div className="mb-8">
-              <h1 className="text-3xl font-bold text-text-dark">
+            <div className="mb-6">
+              <h1 className="text-3xl font-bold text-text-dark mb-2">
                 Finsight
               </h1>
-              <p className="text-[0.8rem] text-text-muted">Financial Analytics Dashboard</p>
+              <p className="text-[0.8rem]">Personlized financial analytical dashboard</p>
             </div>
 
             <h2 className="text-[1.4rem] font-semibold mb-6 text-indigo-900">Register</h2>
@@ -107,6 +126,15 @@ export const Register = () => {
                 {loading ? 'Creating account...' : 'Register'}
               </Button>
             </form>
+            <div className='flex flex-col items-center justify-between gap-4 p-4'>
+              <span>or</span>
+              <GoogleLogin
+                onSuccess={handleGoogleSuccess}
+                onError={handleGoogleError}
+                size="large"
+                text="signup_with"
+              />
+            </div>
 
             <div className="mt-6 text-center">
               <p className="text-slate-600 text-[0.8rem]">
@@ -130,6 +158,8 @@ export const Register = () => {
           <img
             src="/illustrator1.svg"
             alt="Register"
+            loading='lazy'
+            decoding='async'
             className="max-h-screen max-w-full object-contain"
           />
         </div>

@@ -54,11 +54,41 @@ export const logoutUser = createAsyncThunk(
   },
 );
 
+export const googleAuthUser = createAsyncThunk(
+  "/auth/google",
+  async (idToken, { rejectWithValue }) => {
+    try {
+      const response = await authAPI.googleAuth(idToken);
+      return response.data.data;
+    } catch (error) {
+      return rejectWithValue(
+        error.response?.data?.message || "Google auth failed",
+      );
+    }
+  },
+);
+
+export const updatePassword = createAsyncThunk(
+  "auth/password-update",
+  async (data, { rejectWithValue }) => {
+    try {
+      const response = await authAPI.updatePassword(data);
+      return response.data.message;
+    } catch (error) {
+      return rejectWithValue(
+        error.response?.data?.message || "Password update failed",
+      );
+    }
+  },
+);
+
 const initialState = {
   user: null,
   isAuthenticated: false,
   loading: true,
   error: null,
+  newPassword: null,
+  isNewPasswordSubmitted: false,
 };
 
 const authSlice = createSlice({
@@ -136,6 +166,37 @@ const authSlice = createSlice({
         state.user = null;
         state.isAuthenticated = false;
         state.error = null;
+      });
+
+    // Google Auth
+    builder
+      .addCase(googleAuthUser.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(googleAuthUser.fulfilled, (state, action) => {
+        state.loading = false;
+        state.user = action.payload;
+        state.isAuthenticated = true;
+      })
+      .addCase(googleAuthUser.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      });
+
+    // Update password
+    builder
+      .addCase(updatePassword.pending, (state) => {
+        state.isNewPasswordSubmitted = true;
+        state.error = null;
+      })
+      .addCase(updatePassword.fulfilled, (state, action) => {
+        state.isNewPasswordSubmitted = false;
+        state.newPassword = action.payload;
+      })
+      .addCase(updatePassword.rejected, (state, action) => {
+        state.isNewPasswordSubmitted = false;
+        state.error = action.payload;
       });
   },
 });
