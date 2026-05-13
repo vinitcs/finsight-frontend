@@ -56,6 +56,7 @@ export const ROUTES = {
   TRANSACTIONS: "/transactions",
   UPLOAD: "/upload",
   ANALYTICS: "/analytics",
+  AI_REPORT: "/ai-report",
   ACCOUNT: "/accounts",
   UPDATE_PASSWORD: "/updatePassword"
 };

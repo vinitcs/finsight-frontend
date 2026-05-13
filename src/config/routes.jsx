@@ -7,6 +7,7 @@ import { Dashboard } from '../pages/Dashboard/Dashboard'
 import { Transactions } from '../pages/Transactions/Transactions'
 import { Upload } from '../pages/Upload/Upload'
 import { Analytics } from '../pages/Analytics/Analytics'
+import { AIReport } from '../pages/Analytics/AIReport'
 import { Account } from '../pages/Account/Account'
 import { ProtectedRoute } from '../components/layout/ProtectedRoute'
 import { ROUTES } from '../utils/constants'
@@ -45,6 +46,10 @@ export const routeConfig = [
       {
         path: ROUTES.ANALYTICS,
         element: <Analytics />,
+      },
+      {
+        path: ROUTES.AI_REPORT,
+        element: <AIReport />,
       },
       {
         path: ROUTES.ACCOUNT,

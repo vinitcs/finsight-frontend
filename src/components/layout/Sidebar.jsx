@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { logoutUser } from '../../store/slices/authSlice'
 import { ROUTES } from '../../utils/constants'
-import { ChartBarSquareIcon, ClipboardIcon, CreditCardIcon, ArrowUpTrayIcon, ChartBarIcon, Cog6ToothIcon, ArrowLeftStartOnRectangleIcon, LockClosedIcon } from "@heroicons/react/24/solid"
+import { ChartBarSquareIcon, ClipboardIcon, CreditCardIcon, ArrowUpTrayIcon, ChartBarIcon, Cog6ToothIcon, ArrowLeftStartOnRectangleIcon, LockClosedIcon, SparklesIcon } from "@heroicons/react/24/solid"
 
 export const Sidebar = ({ isOpen, onClose }) => {
   const navigate = useNavigate()
@@ -14,6 +14,7 @@ export const Sidebar = ({ isOpen, onClose }) => {
   const menuItems = [
     { name: 'Dashboard', path: ROUTES.DASHBOARD, icon: ClipboardIcon },
     { name: 'Analytics', path: ROUTES.ANALYTICS, icon: ChartBarIcon },
+    { name: 'AI Report', path: ROUTES.AI_REPORT, icon: SparklesIcon },
     { name: 'Transactions', path: ROUTES.TRANSACTIONS, icon: CreditCardIcon },
     { name: 'Upload', path: ROUTES.UPLOAD, icon: ArrowUpTrayIcon },
     { name: 'Accounts', path: ROUTES.ACCOUNT, icon: Cog6ToothIcon },

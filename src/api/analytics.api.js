@@ -14,5 +14,7 @@ export const analyticsAPI = {
     api.get("/analytics/top-debits", { params }),
   getBalanceTrend: (params) =>
     api.get("/analytics/balance-trend", { params }),
+  getAIReport: (params) =>
+    api.get("/analytics/ai-report", { params }),
   // getInsights: (params) => api.get("/analytics/insights", { params }),
 };
