@@ -50,9 +50,10 @@ export const MONTHS = [
 ];
 
 export const ROUTES = {
+  HOME: "/",
   LOGIN: "/login",
   REGISTER: "/register",
-  DASHBOARD: "/",
+  DASHBOARD: "/dashboard",
   TRANSACTIONS: "/transactions",
   UPLOAD: "/upload",
   ANALYTICS: "/analytics",

@@ -22,13 +22,12 @@ export const Sidebar = ({ isOpen, onClose }) => {
   ]
 
   const handleLogout = async () => {
-    // Dispatch logout action and wait for it to complete
+    // Dispatch logout action to clear auth state
     const result = await dispatch(logoutUser())
-    // Only navigate if logout succeeded
-    if (result.type === 'auth/logout/fulfilled') {
-      // Token is cleared by backend (HTTP-only cookie)
-      // Auth state is cleared by Redux reducer
-      navigate(ROUTES.LOGIN)
+    // Use hard redirect to landing page only if logout succeeded
+    // This ensures backend session is cleared before redirecting
+    if (result.type === 'auth/logout/fulfilled' || result.type === 'auth/logout/rejected') {
+      window.location.href = '/'
     }
   }
 

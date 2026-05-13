@@ -1,8 +1,11 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import { ROUTES } from '../../utils/constants'
 
 export const Navbar = ({ onMenuClick, accountSelector }) => {
   const { user } = useSelector((state) => state.auth)
+  const navigate = useNavigate()
 
   return (
     <div className="sticky top-0 z-20 shadow-sm">
@@ -33,12 +36,27 @@ export const Navbar = ({ onMenuClick, accountSelector }) => {
             {accountSelector}
           </div>
 
-          {/* Right - User info */}
+          {/* Right - User info or Auth buttons */}
           <div className="flex items-center gap-4">
-            {user && (
+            {user ? (
               <div className="text-right hidden sm:block">
                 <p className="text-xs text-black">{user.name}</p>
                 <p className="text-xs text-black">{user.email}</p>
+              </div>
+            ) : (
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={() => navigate(ROUTES.LOGIN)}
+                  className="px-4 py-2 text-indigo-900 font-medium hover:text-indigo-700 transition-colors hidden sm:block"
+                >
+                  Login
+                </button>
+                <button
+                  onClick={() => navigate(ROUTES.REGISTER)}
+                  className="px-4 py-2 bg-indigo-900 text-white font-medium rounded hover:bg-indigo-800 transition-colors hidden sm:block"
+                >
+                  Sign Up
+                </button>
               </div>
             )}
           </div>

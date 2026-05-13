@@ -23,11 +23,11 @@ api.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response?.status === 401) {
-      // Only redirect if not already on login page to prevent redirect loops
-      if (window.location.pathname !== "/login") {
+      // Only redirect if not already on landing page to prevent redirect loops
+      if (window.location.pathname !== "/") {
         // Token is cleared by backend (HTTP-only cookie)
         // Redux auth state will be cleared by the redirect
-        window.location.href = "/login";
+        window.location.href = "/";
       }
     }
     return Promise.reject(error);

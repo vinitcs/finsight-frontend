@@ -75,14 +75,14 @@ export const AIReport = () => {
      const markdownComponents = {
           h1: ({ node, ...props }) => <h1 className="text-3xl font-bold text-primary mt-6 mb-4" {...props} />,
           h2: ({ node, ...props }) => <h2 className="text-2xl font-bold text-primary mt-5 mb-3" {...props} />,
-          h3: ({ node, ...props }) => <h3 className="text-xl font-semibold text-secondary mt-4 mb-2" {...props} />,
-          h4: ({ node, ...props }) => <h4 className="text-lg font-semibold text-slate-300 mt-3 mb-2" {...props} />,
-          p: ({ node, ...props }) => <p className="text-slate-300 mb-3 leading-relaxed" {...props} />,
-          strong: ({ node, ...props }) => <strong className="font-bold text-light" {...props} />,
-          em: ({ node, ...props }) => <em className="italic text-slate-400" {...props} />,
-          ul: ({ node, ...props }) => <ul className="list-disc list-inside mb-4 space-y-2 text-slate-300" {...props} />,
-          ol: ({ node, ...props }) => <ol className="list-decimal list-inside mb-4 space-y-2 text-slate-300" {...props} />,
-          li: ({ node, ...props }) => <li className="text-slate-300 ml-2" {...props} />,
+          h3: ({ node, ...props }) => <h3 className="text-xl font-semibold text-primary mt-4 mb-2" {...props} />,
+          h4: ({ node, ...props }) => <h4 className="text-lg font-semibold text-secondary mt-3 mb-2" {...props} />,
+          p: ({ node, ...props }) => <p className="text-secondary mb-3 leading-relaxed" {...props} />,
+          strong: ({ node, ...props }) => <strong className="font-bold text-primary" {...props} />,
+          em: ({ node, ...props }) => <em className="italic text-secondary" {...props} />,
+          ul: ({ node, ...props }) => <ul className="list-disc list-inside mb-4 space-y-2 text-secondary" {...props} />,
+          ol: ({ node, ...props }) => <ol className="list-decimal list-inside mb-4 space-y-2 text-secondary" {...props} />,
+          li: ({ node, ...props }) => <li className="text-secondary ml-2" {...props} />,
           table: ({ node, ...props }) => (
                <div className="overflow-x-auto mb-4">
                     <table className="w-full border-collapse border border-slate-600" {...props} />
@@ -92,21 +92,21 @@ export const AIReport = () => {
           tbody: ({ node, ...props }) => <tbody {...props} />,
           tr: ({ node, ...props }) => <tr className="border border-slate-600" {...props} />,
           th: ({ node, ...props }) => (
-               <th className="border border-slate-600 px-4 py-2 text-left font-semibold text-secondary bg-slate-700" {...props} />
+               <th className="border border-slate-600 px-4 py-2 text-left font-semibold text-white bg-slate-700" {...props} />
           ),
           td: ({ node, ...props }) => (
-               <td className="border border-slate-600 px-4 py-2 text-slate-300" {...props} />
+               <td className="border border-slate-600 px-4 py-2 text-secondary" {...props} />
           ),
           blockquote: ({ node, ...props }) => (
                <blockquote className="border-l-4 border-secondary pl-4 py-2 mb-4 text-slate-400 italic" {...props} />
           ),
           code: ({ node, inline, ...props }) =>
                inline ? (
-                    <code className="bg-slate-800 text-slate-200 px-2 py-1 rounded text-sm font-mono" {...props} />
+                    <code className="bg-slate-800 text-secondary px-2 py-1 rounded text-sm font-mono" {...props} />
                ) : (
-                    <code className="bg-slate-800 text-slate-200 p-3 rounded-lg block mb-4 overflow-x-auto font-mono text-sm" {...props} />
+                    <code className="bg-slate-800 text-secondary p-3 rounded-lg block mb-4 overflow-x-auto font-mono text-sm" {...props} />
                ),
-          hr: ({ node, ...props }) => <hr className="border-t border-slate-600 my-6" {...props} />,
+          hr: ({ node, ...props }) => <hr className="border-t border-light my-6" {...props} />,
      }
 
      const COLORS = ['#3b82f6', '#8b5cf6', '#ec4899', '#f59e0b', '#10b981', '#06b6d4', '#f43f5e', '#14b8a6']
@@ -206,7 +206,7 @@ export const AIReport = () => {
                     {aiReport && !loading && (
                          <>
                               {/* Markdown Report */}
-                              <div className="bg-slate-800 rounded-lg border border-slate-700 p-8 prose-invert max-w-none">
+                              <div className="rounded-lg border border-light p-8 prose-invert max-w-none">
                                    <div className="markdown-content">
                                         <ReactMarkdown
                                              remarkPlugins={[remarkGfm]}
@@ -221,7 +221,7 @@ export const AIReport = () => {
                               <div className="space-y-6">
                                    {/* Amount Ranges Pie Chart */}
                                    {amountRanges.length > 0 && (
-                                        <div className="bg-slate-800 rounded-lg border border-slate-700 p-8">
+                                        <div className="rounded-lg border border-light p-8">
                                              <h3 className="text-2xl font-bold text-secondary mb-6">Transaction Amount Distribution</h3>
                                              <ResponsiveContainer width="100%" height={400}>
                                                   <PieChart>
@@ -247,7 +247,7 @@ export const AIReport = () => {
 
                                    {/* Top Credits and Debits Bar Chart */}
                                    {(topCredits.length > 0 || topDebits.length > 0) && (
-                                        <div className="bg-slate-800 rounded-lg border border-slate-700 p-8">
+                                        <div className="rounded-lg border border-light p-8">
                                              <h3 className="text-2xl font-bold text-secondary mb-6">Top Transactions</h3>
                                              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                                                   {/* Top Credits */}

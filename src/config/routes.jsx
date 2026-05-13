@@ -1,5 +1,6 @@
 import React from 'react'
 import { Navigate } from 'react-router-dom'
+import { Landing } from '../pages/Landing/Landing'
 import { Login } from '../pages/Auth/Login'
 import { Register } from '../pages/Auth/Register'
 import { UpdatePassword } from '../pages/Auth/UpdatePassword'
@@ -17,6 +18,12 @@ import { ROUTES } from '../utils/constants'
  * Define routes as configuration objects for better maintainability
  */
 export const routeConfig = [
+  // Landing page
+  {
+    path: ROUTES.HOME,
+    element: <Landing />,
+  },
+
   // Public Routes
   {
     path: ROUTES.LOGIN,
@@ -62,9 +69,9 @@ export const routeConfig = [
     ],
   },
 
-  // Catch-all route - redirect to dashboard
+  // Catch-all route - redirect to home
   {
     path: '*',
-    element: <Navigate to={ROUTES.DASHBOARD} replace />,
+    element: <Navigate to={ROUTES.HOME} replace />,
   },
 ]

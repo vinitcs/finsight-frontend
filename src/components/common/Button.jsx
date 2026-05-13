@@ -26,12 +26,11 @@ export const Button = ({
     lg: 'px-6 py-3 text-base',
   }
 
-  const primaryStyle = variant === 'primary' ? { backgroundColor: '#2563EB' } : {}
+  const primaryStyle = variant === 'primary' ? 'bg-primary' : {}
 
   return (
     <button
-      className={`${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`}
-      style={primaryStyle}
+      className={`${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${primaryStyle} ${className}`}
       disabled={disabled || isLoading}
       {...props}
     >

@@ -63,7 +63,7 @@ export const MonthlyBalanceChart = ({ selectedAccount = null }) => {
      if (!monthlyBalance || monthlyBalance.length === 0) {
           return (
                <div className="rounded-xl border border-light p-6">
-                    <div className="bg-slate-800 rounded-lg border border-slate-700 p-6 h-96 flex items-center justify-center">
+                    <div className="rounded-lg border border-light p-6 h-96 flex items-center justify-center">
                          <p className="text-slate-400">No data available</p>
                     </div>
                </div>
