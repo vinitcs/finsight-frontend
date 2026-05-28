@@ -11,14 +11,7 @@ export const AmountRangesTable = ({ selectedAccount = null, dateRange = {} }) =>
     dateRange.endDate
   )
 
-  const tableData = amountRanges
-    ? [
-        { label: amountRanges.large.label, ...amountRanges.large },
-        { label: amountRanges.medium.label, ...amountRanges.medium },
-        { label: amountRanges.small.label, ...amountRanges.small },
-        { label: amountRanges.micro.label, ...amountRanges.micro },
-      ]
-    : []
+  const tableData = amountRanges && Array.isArray(amountRanges) ? amountRanges : []
 
   return (
     <div className="space-y-4">
