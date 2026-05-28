@@ -8,11 +8,14 @@ Modern, responsive React application for managing bank accounts, uploading state
 
 ### Key Features
 
+- Landing page with feature overview
 - User authentication (login/register)
+- Password management (update password)
 - Bank account management
 - PDF bank statement upload
 - Transaction history viewer
 - Advanced analytics dashboards with charts
+- AI-powered financial reports (Gemini API integration)
 - Monthly and yearly balance trends
 - Cash flow analysis (credits vs debits)
 - Top transactions visualization
@@ -44,9 +47,10 @@ src/
 │   ├── analytics/    # Analytics components
 │   └── DatePicker/   # Date picker
 ├── pages/            # Page components
-│   ├── Auth/         # Login/Register pages
+│   ├── Landing/      # Landing page with feature overview
+│   ├── Auth/         # Login/Register/UpdatePassword pages
 │   ├── Dashboard/    # Main dashboard
-│   ├── Analytics/    # Analytics page
+│   ├── Analytics/    # Analytics & AIReport pages
 │   ├── Transactions/ # Transactions page
 │   ├── Account/      # Account management
 │   ├── Upload/       # File upload page

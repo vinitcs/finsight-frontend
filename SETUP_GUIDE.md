@@ -40,14 +40,18 @@ src/
 
 ### Authentication
 - ✅ Login/Register pages with React Hook Form + Zod validation
+- ✅ Update Password page for password management
 - ✅ Protected routes with automatic redirects
 - ✅ Automatic logout on 401 errors
 - ✅ User state persistence via localStorage
 
 ### Pages
+- ✅ Landing - Feature overview and entry point
 - ✅ Dashboard - Stats cards, charts, recent transactions
 - ✅ Transactions - Paginated transaction list
 - ✅ Upload - PDF file upload with polling
+- ✅ Analytics - Charts and financial analysis
+- ✅ AI Report - AI-powered financial insights (Gemini API)
 - ✅ Analytics - Monthly/yearly/category charts
 - ✅ Budget, Recurring, Settings (stubs)
 
