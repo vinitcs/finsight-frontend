@@ -32,7 +32,6 @@ export const fetchUser = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const response = await authAPI.getCurrentUser();
-      // console.log(response.data);
       return response.data.data || response.data;
     } catch (error) {
       return rejectWithValue(

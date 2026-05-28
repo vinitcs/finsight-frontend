@@ -7,7 +7,6 @@ export const fetchSummary = createAsyncThunk(
   async (params, { dispatch }) => {
     try {
       const response = await analyticsAPI.getSummary(params);
-      // console.log("RESPONSE ANALYTICS SLICES:::", response.data);
       return response.data.data;
     } catch (error) {
       const errorMessage =

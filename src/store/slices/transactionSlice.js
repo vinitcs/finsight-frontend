@@ -8,8 +8,6 @@ export const fetchTransactions = createAsyncThunk(
   async (params, { dispatch }) => {
     try {
       const response = await transactionAPI.getTransactions(params);
-      console.log(response.data.data);
-
       return response.data.data;
     } catch (error) {
       const errorMessage =
