@@ -110,10 +110,10 @@ export const Landing = () => {
                          {/* Right Side - Feature Highlight */}
                          <div className="hidden md:block">
                               <div className="bg-white rounded-2xl shadow-lg p-6">
-                                   <img src={landingPageDisplay} loading='lazy' alt="Analytics Dashboard" className="rounded-xl h-64 w-full mb-6 bg-light object-fit"/>
+                                   <img src={landingPageDisplay} loading='lazy' alt="Analytics Dashboard" className="rounded-xl h-64 w-full mb-6 bg-light object-fit" />
                                    <h3 className="text-xl font-semibold mb-2 text-primary">Analytics Dashboard</h3>
                                    <p className="text-secondary">
-                                        Visualize your financial data with beautiful charts and comprehensive analytics to understand your financial health better.
+                                        Visualize your financial data with charts and comprehensive analytics to understand your financial health better.
                                    </p>
                               </div>
                          </div>
@@ -146,7 +146,7 @@ export const Landing = () => {
                                    </div>
                                    <h3 className="text-lg font-semibold mb-2 text-primary">Upload Data</h3>
                                    <p className='text-secondary'>
-                                        Upload your transaction files in PDF or Excel format
+                                        Upload your transaction files in PDF format
                                    </p>
                               </div>
 
