@@ -17,8 +17,6 @@ export const Upload = () => {
   const { selectedAccount } = useAccounts('upload');
   const { uploads, pagination,
     loading, error, setPagination, } = useUpload();
-  console.log(uploads);
-
 
   const [file, setFile] = useState(null)
 
